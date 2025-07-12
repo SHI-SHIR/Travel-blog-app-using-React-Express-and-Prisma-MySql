@@ -58,15 +58,13 @@ router.post('/add', fetchuser,
   ],
   async (req, res) => {
     try {
-      console.log("Headers:", req.headers);
-      console.log("Body keys:", Object.keys(req.body));
-      console.log("Title:", req.body.title);
-      console.log("Description:", req.body.description);
-      console.log("Image length:", req.body.image ? req.body.image.length : 0);
-
+      
       const errors = validationResult(req);
       if (!errors.isEmpty())
         return res.status(400).json({ errors: errors.array() });
+
+       console.log("User ID from token:", req.user.id);
+  console.log("Blog data received:", req.body);
 
       const { title, description, image } = req.body;
 

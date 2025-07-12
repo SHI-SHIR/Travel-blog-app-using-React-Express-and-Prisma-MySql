@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navabr from "./Navbar";
+import Navbar from "./Navbar";
 
 const Login = () => {
   const host = "https://mern-travel-blog-web-app.onrender.com";
@@ -39,14 +39,13 @@ const Login = () => {
   return (
     <>
 
-    <Navabr />
+    <Navbar />
       <div className="flex flex-col justify-center items-center h-screen v-screen">
         <h1 className="text-3xl mt-30 mb-3"> Log In</h1>
         <form
-          action="/create"
-          method="post"
-          className="flex flex-col space-y-6 w-full max-w-4xl bg-white p-6 rounded-lg shadow-md"
           onSubmit={handleSubmit}
+          className="flex flex-col space-y-6 w-full max-w-4xl bg-white p-6 rounded-lg shadow-md"
+          
         >
           <div>
             <label htmlFor="floatingInput">Email address</label>
