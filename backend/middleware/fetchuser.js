@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET;  // read from env
 
 const fetchuser = (req, res, next) => {
+  console.log("Received a blog add request");
   console.log("Token received from header:", req.header('auth-token'));
 
   const token = req.header('auth-token');
