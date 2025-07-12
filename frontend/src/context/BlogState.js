@@ -185,9 +185,7 @@ const BlogState = (props) => {
 
   // ✅ Add a Blog
   const addBlog = async (title, description, image) => {
-    console.log("Sending token:", localStorage.getItem("token"));
-
-    try {
+        try {
       const response = await fetch(`${host}/api/blogs/add`, {
         method: "POST",
         headers: {
