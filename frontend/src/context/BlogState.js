@@ -154,7 +154,7 @@ import React, { useState } from "react";
 import blogContext from "./blogContext";
 
 const BlogState = (props) => {
-  const host = "http://localhost:5000";
+  const host = "https://mern-travel-blog-web-app.onrender.com";
   const blogsInitial = [];
 
   const [blogs, setBlogs] = useState(blogsInitial);
