@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navabr from "./Navbar";
 
 const Login = () => {
-  const host = "http://localhost:5000";
+  const host = "https://mern-travel-blog-web-app.onrender.com";
   const [credentials, setCredentials] = useState({ email: "", password: "" });
 
   let navigate = useNavigate();
