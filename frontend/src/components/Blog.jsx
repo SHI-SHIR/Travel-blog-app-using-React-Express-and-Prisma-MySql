@@ -1,71 +1,6 @@
-// // Blog.jsx (Fixed)
-// import React, { useContext, useEffect, useRef, useState } from "react";
-// import Navbar from "./Navbar";
-// import { Link, useNavigate } from "react-router-dom";
-// import blogContext from "../context/blogContext";
-// import BlogItem from "./BlogItem"; // ✅ new component you'll create
-
-// const Blog = () => {
-//   const context = useContext(blogContext);
-//   const { blogs, getBlogs, editBlog } = context;
-
-//   const [blog, setBlog] = useState({ id: "", etitle: "", edescription: "", eimage: "" });
-//   const navigate = useNavigate();
-
-//   const ref = useRef(null);
-//   const refClose = useRef(null);
-
-//   useEffect(() => {
-//   getBlogs(); // ✅ Always fetch blogs
-// }, []);
-
-
-//   const updateBlog = (currentBlog) => {
-//     ref.current.click();
-//     setBlog({
-//       id: currentBlog._id,
-//       etitle: currentBlog.title,
-//       edescription: currentBlog.description,
-//       eimage: currentBlog.image,
-//     });
-//   };
-
-//   const handleClick = (e) => {
-//     e.preventDefault();
-//     editBlog(blog.id, blog.etitle, blog.edescription, blog.eimage);
-//     refClose.current.click();
-//   };
-
-//   const onChange = (e) => {
-//     setBlog({ ...blog, [e.target.name]: e.target.value });
-//   };
-
-//   return (
-//     <>
-//       <Navbar />
-//       <div className="w-full min-h-screen bg-white p-10 pt-24 text-black">
-//   <h1 className="text-3xl font-bold mb-3">Blogs:</h1>
-//   <hr className="mb-6 border-zinc-700" />
-
-//   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-//     {blogs.map((blog) => (
-//       <BlogItem key={blog._id} blog={blog} updateBlog={updateBlog} />
-//     ))}
-//   </div>
-// </div>
-//     </>
-//   );
-// };
-
-// export default Blog;
-
-
-
-
-//-----------new code--------------------
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import blogContext from "../context/blogContext";
 import BlogItem from "./BlogItem";
 
@@ -82,7 +17,9 @@ const Blog = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
+
       await getBlogs();
+      console.log("Fetched blogs:", blogs);
       setLoading(false);
     };
     fetchBlogs();
@@ -91,7 +28,7 @@ const Blog = () => {
   const updateBlog = (currentBlog) => {
     ref.current.click();
     setBlog({
-      id: currentBlog._id,
+      id: currentBlog.id,
       etitle: currentBlog.title,
       edescription: currentBlog.description,
       eimage: currentBlog.image,
@@ -130,7 +67,7 @@ const Blog = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {blogs.map((blog) => (
-              <BlogItem key={blog._id} blog={blog} updateBlog={updateBlog} />
+              <BlogItem key={blog.id} blog={blog} updateBlog={updateBlog} />
             ))}
           </div>
         )}
@@ -140,4 +77,3 @@ const Blog = () => {
 };
 
 export default Blog;
-

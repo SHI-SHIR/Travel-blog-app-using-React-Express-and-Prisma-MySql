@@ -1,50 +1,48 @@
-const express = require('express');
-const User = require('../models/User');
-const router = express.Router();
-const { check, validationResult } = require('express-validator');
-var jwt = require('jsonwebtoken');
-const fetchuser = require('../middleware/fetchuser');
+import express from 'express';
+import { check, validationResult } from 'express-validator';
+import jwt from 'jsonwebtoken';
+import prisma from '../prismaClient.js';
 
+const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// ROUTE 1: Authenticate a user using POST "/api/auth/login". No login required
-router.post('/login', [
-  check('email', 'Enter a valid email').isEmail(),
-  check('password', 'Password must be at least 5 characters').isLength({ min: 5 }),
-], async (req, res) => {
-  let success = false;
-
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-
-  const { email, password } = req.body;
-  try {
-    let user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ error: "Please try to login with correct credentials" });
+// POST /api/auth/login
+router.post(
+  '/login',
+  [
+    check('email', 'Enter a valid email').isEmail(),
+    check('password', 'Password must be at least 5 characters').isLength({ min: 5 }),
+  ],
+  async (req, res) => {
+    let success = false;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    // Plain-text password check (NOT RECOMMENDED FOR PRODUCTION)
-    if (password !== user.password) {
-      return res.status(400).json({ success, error: "Please try to login with correct credentials" });
-    }
+    const { email, password } = req.body;
 
-    const data = {
-      user: {
-        id: user.id
+    try {
+      const user = await prisma.user.findUnique({ where: { email } });
+
+      if (!user || user.password !== password) {
+        return res.status(400).json({ success, error: 'Invalid credentials' });
       }
-    };
 
-    const authtoken = jwt.sign(data, JWT_SECRET);
-    success = true;
-    res.json({ success, authtoken });
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
 
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Some error occurred");
+      const authtoken = jwt.sign(payload, JWT_SECRET);
+      success = true;
+      res.json({ success, authtoken });
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send('Internal Server Error');
+    }
   }
-});
+);
 
-module.exports = router;
+export default router;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -11,18 +12,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 bg-transparent text-zinc-900 drop-shadow-md" style={{ textShadow: '0px 1px 0px rgb(183, 177, 177)' }}>
+    <nav
+      className="absolute top-0 left-0 w-full z-50 bg-transparent text-zinc-900 drop-shadow-md"
+      style={{ textShadow: "0px 1px 0px rgb(183, 177, 177)" }}
+    >
       <div className="flex justify-between items-center px-6 py-1 ">
         {/* Logo or Brand */}
         <div className="text-4xl font-bold ">
-       
-           <Link to="/" className="flex items-center">
-          <img
-            src="images/logo.svg" // Make sure the logo file is placed in `public/images/logo.png`
-            alt="TalkToLocal"
-            className="h-20 w-auto object-contain text-red-900"
-          />
-        </Link>
+          <Link to="/" className="flex items-center">
+            <img
+              src="/images/logo.svg" 
+              alt="TalkToLocal"
+              className="h-20 w-auto object-contain text-red-900"
+            />
+          </Link>
         </div>
 
         {/* Hamburger button (mobile) */}
@@ -54,13 +57,12 @@ const Navbar = () => {
             </Link>
           ) : (
             <>
-            <Link to="/create" className="hover:text-yellow-400">
+              <Link to="/create" className="hover:text-yellow-400">
                 Create
               </Link>
               <button onClick={handleLogout} className="hover:text-yellow-400">
                 Log out
               </button>
-              
             </>
           )}
         </div>
@@ -87,13 +89,12 @@ const Navbar = () => {
             </Link>
           ) : (
             <>
-            <Link to="/create" className="hover:text-yellow-400">
+              <Link to="/create" className="hover:text-yellow-400">
                 Create
               </Link>
               <button onClick={handleLogout} className="hover:text-yellow-400">
                 Log out
               </button>
-              
             </>
           )}
         </div>

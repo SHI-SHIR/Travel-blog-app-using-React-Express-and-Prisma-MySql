@@ -1,18 +1,25 @@
-const express = require('express');
-const router = express.Router();
-const Blog = require('../models/Blog'); // your blog model
+import express from 'express';
+import prisma from '../prismaClient.js';
 
-// GET /api/images/fetchall
-// Return all images from blogs (public or with auth, your choice)
+const router = express.Router();
+
 router.get('/fetchall', async (req, res) => {
   try {
-    const blogs = await Blog.find({}, 'image'); // fetch only image field
-    const images = blogs.map(blog => blog.image).filter(Boolean); // get images, remove null/undefined
+    const blogs = await prisma.blog.findMany({
+      select: { image: true },
+      where: {
+        image: { not: "" }  // exclude empty images
+      }
+    });
+
+    const images = blogs.map(blog => blog.image);
+
     res.json(images);
   } catch (error) {
-    console.error(error.message);
+    console.error("Error in /api/images/fetchall:", error);
     res.status(500).send("Internal Server Error");
   }
 });
 
-module.exports = router;
+
+export default router;

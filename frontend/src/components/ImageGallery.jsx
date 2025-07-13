@@ -8,7 +8,6 @@ const ImageGallery = () => {
   const [loading, setLoading] = useState(true);
   const navRef = useRef(null);
 
-  // Fetch images on mount
   useEffect(() => {
     const fetchImages = async () => {
       await getImages();
@@ -17,7 +16,6 @@ const ImageGallery = () => {
     fetchImages();
   }, [getImages]);
 
-  // Get nav height
   useLayoutEffect(() => {
     if (navRef.current) {
       setNavHeight(navRef.current.offsetHeight);
@@ -51,10 +49,10 @@ const ImageGallery = () => {
           <p className="text-black text-lg">No images found.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5">
-            {images.map((src, idx) => (
+            {images.map((image, idx) => (
               <img
                 key={idx}
-                src={src}
+                src={image}
                 alt={`image-${idx}`}
                 className="w-full h-auto rounded shadow-lg"
                 style={{ objectFit: "contain" }}

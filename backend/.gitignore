@@ -20,3 +20,5 @@ Thumbs.db
 # Optional: Build output if you have any build step
 dist/
 build/
+
+/generated/prisma
