@@ -10,7 +10,7 @@ const BlogItem = ({ blog, updateBlog }) => {
     desc.length > length ? desc.slice(0, length) + "..." : desc;
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col cursor-pointer hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-white fonr-poppins rounded-lg shadow-lg overflow-hidden flex flex-col cursor-pointer hover:shadow-xl transition-shadow duration-300">
       {/* Image container */}
       <div
         className="aspect-16-9 overflow-hidden relative"

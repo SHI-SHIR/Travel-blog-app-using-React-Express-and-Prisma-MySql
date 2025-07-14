@@ -13,8 +13,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className="absolute top-0 left-0 w-full z-50 bg-transparent text-zinc-900 drop-shadow-md"
-      style={{ textShadow: "0px 1px 0px rgb(183, 177, 177)" }}
+      className="absolute top-0 left-0 w-full z-50 bg-transparent text-black drop-shadow-md"
+      style={{ textShadow: "0px 0.5px 0px rgba(131, 127, 127, 1)" }}
     >
       <div className="flex justify-between items-center px-6 py-1 ">
         {/* Logo or Brand */}
@@ -37,7 +37,7 @@ const Navbar = () => {
         </button>
 
         {/* Links (desktop) */}
-        <div className="hidden md:flex space-x-6 text-2xl font-medium">
+        <div className="hidden md:flex font-poppins space-x-6 text-2xl font-medium">
           <Link to="/" className="hover:text-yellow-400">
             Home
           </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col items-center space-y-3 pb-4 text-xl font-medium">
+        <div className="md:hidden font-poppins flex flex-col items-center space-y-3 pb-4 text-xl font-medium">
           <Link to="/" className="hover:text-yellow-400">
             Home
           </Link>

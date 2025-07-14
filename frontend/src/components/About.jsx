@@ -126,7 +126,7 @@ const About = () => {
               <FaTiktok />
             </a>
           </div>
-          <p className="mt-7 text-yellow-600 text-sm">
+          <p className="mt-6 text-yellow-600 text-sm">
             © {new Date().getFullYear()} Talk to Local. All rights reserved.
           </p>
         </footer>

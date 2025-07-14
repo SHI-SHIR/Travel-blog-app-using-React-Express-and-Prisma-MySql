@@ -56,7 +56,7 @@ const Create = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col justify-center items-center min-h-screen">
+      <div className="flex flex-col justify-center items-center min-h-screen font-space">
         <h1 className="text-3xl mt-10 mb-3">Create Blog</h1>
 
         <form

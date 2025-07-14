@@ -19,7 +19,7 @@ const Blog = () => {
     const fetchBlogs = async () => {
 
       await getBlogs();
-      console.log("Fetched blogs:", blogs);
+      
       setLoading(false);
     };
     fetchBlogs();
@@ -59,7 +59,7 @@ const Blog = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full min-h-screen bg-white p-10 pt-24 text-black">
+      <div className="w-full min-h-screen font-poppins bg-white p-10 pt-24 text-black">
         <h1 className="text-3xl font-bold mb-3 mt-10">Blogs:</h1>
         <hr className="mb-6 border-zinc-700" />
         {blogs.length === 0 ? (

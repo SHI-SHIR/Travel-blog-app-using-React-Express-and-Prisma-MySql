@@ -7,6 +7,11 @@ module.exports = {
     extend: {
   fontFamily: {
     playfair: ['"Playfair Display"', 'serif'],
+     space: ['"Space Grotesk"', 'sans-serif'],
+      merri: ['"Merriweather"', 'serif'],
+      lora: ['"Lora"', 'serif'],
+      vollkorn: ['"Vollkorn Rounded"', 'serif'],
+      poppins: ['"Poppins"', 'sans-serif'],
   },
 }
   },

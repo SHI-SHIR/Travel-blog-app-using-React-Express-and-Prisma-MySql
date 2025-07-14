@@ -14,7 +14,7 @@ router.get('/fetchall', async (req, res) => {
     });
     res.json(blogs);
   } catch (error) {
-    console.error(error.message);
+    console.error("Error in /api/blogs/fetchall:", error);  // log full error object
     res.status(500).send('Internal Server Error');
   }
 });

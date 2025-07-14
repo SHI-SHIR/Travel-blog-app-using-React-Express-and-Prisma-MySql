@@ -74,7 +74,7 @@ const BlogDetails = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-white pt-28 px-6 pb-10 text-black">
+      <div className="min-h-screen bg-white font-poppins pt-28 px-6 pb-10 text-black">
         <div className="max-w-4xl mx-auto">
           {/* Blog Image */}
           <img

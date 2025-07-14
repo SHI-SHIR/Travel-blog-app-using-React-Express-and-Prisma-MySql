@@ -36,7 +36,7 @@ const getImages = async () => {
     }
 
     const data = await response.json();
-    console.log("Fetched images:", data); // Debug: see what you get
+    
     setImages(data);
   } catch (error) {
     console.error("Error fetching images:", error);
@@ -57,7 +57,7 @@ const getImages = async () => {
         body: JSON.stringify({ title, description, image }),
       });
       const data = await response.json();
-      console.log("Add blog response:", data);
+      
       setBlogs((prev) => [...prev, data]);
       return data;
     } catch (error) {
