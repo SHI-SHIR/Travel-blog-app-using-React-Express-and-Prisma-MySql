@@ -59,7 +59,7 @@ const EditBlog = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col justify-center items-center min-h-screen font-space">
+      <div className="flex flex-col justify-center items-center font-space min-h-screen font-space mt-20">
         <h1 className="text-3xl mt-10 mb-6">Edit Blog</h1>
 
         <form

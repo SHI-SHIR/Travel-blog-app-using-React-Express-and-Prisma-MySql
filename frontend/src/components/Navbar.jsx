@@ -70,7 +70,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden font-poppins flex flex-col items-center space-y-3 pb-4 text-xl font-medium">
+        <div className="md:hidden w-full bg-black/60 backdrop-blur-sm font-poppins flex flex-col items-center space-y-3 px-6 pt-4 pb-4 text-xl font-medium text-white">
           <Link to="/" className="hover:text-yellow-400">
             Home
           </Link>

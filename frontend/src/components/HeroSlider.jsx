@@ -40,7 +40,7 @@ const positionClasses = {
   "top-right": "top-40 right-20 text-right",
   "bottom-left": "bottom-40 left-20 text-left",
   "bottom-right": "bottom-36 right-20 text-right",
-  center:  "top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center",
+  center:  "top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center mt-60",
 };
 
 const HeroSlider = () => {
