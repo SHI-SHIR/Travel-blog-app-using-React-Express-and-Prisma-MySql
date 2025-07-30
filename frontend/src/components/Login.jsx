@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const Login = () => {
-  const host = process.env.REACT_APP_API_HOST || "http://localhost:5000";
+  const host = "http://localhost:5000";
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

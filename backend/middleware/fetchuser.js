@@ -1,10 +1,9 @@
-const jwt = require('jsonwebtoken');
+// fetchuser.js (ES Module style)
+import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET;  // read from env
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const fetchuser = (req, res, next) => {
-  
-
   const token = req.header('auth-token');
 
   if (!token) {
@@ -16,8 +15,10 @@ const fetchuser = (req, res, next) => {
     req.user = data.user;
     next();
   } catch (error) {
+    // Log the actual error for debugging, but send generic message to client
+    console.error("JWT verification failed:", error.message);
     return res.status(401).send({ error: "Please authenticate using a valid token" });
   }
 };
 
-module.exports = fetchuser;
+export default fetchuser; // Use export default

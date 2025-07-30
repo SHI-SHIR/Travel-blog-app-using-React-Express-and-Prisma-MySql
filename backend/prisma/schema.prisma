@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
 }
 
 datasource db {
@@ -11,7 +12,7 @@ model User {
   id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
-  password  String
+  password  String   // IMPORTANT: Remember to hash passwords in your application code!
   date      DateTime @default(now())
 
   blogs     Blog[]
@@ -21,12 +22,14 @@ model User {
 model Blog {
   id          Int      @id @default(autoincrement())
   title       String
-  description String
-  image       String   @db.MediumText 
-  date        DateTime @default(now())
+  description String   @db.Text
+  image       String   // This should now be a URL string
+  date        DateTime @default(now()) @map("createdAt") // REMOVE @index FROM THIS LINE
 
   user        User     @relation(fields: [userId], references: [id])
   userId      Int
+
+  @@index([date]) // ADD THIS LINE HERE, AT THE MODEL LEVEL, FOR THE INDEX
 }
 
 model Image {

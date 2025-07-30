@@ -2,31 +2,31 @@ import React, { useState, useEffect } from "react";
 
 const slides = [
   {
-    image: "/images/img1.jpg",
+    image: "/images/img1.webp",
     quote:
       '"I photograph not to capture the place, but to feel its pulse long after I’ve left."',
     position: "center",
   },
   {
-    image: "/images/img2.jpg",
+    image: "/images/img2.webp",
     quote:
       '"I don’t want luxury. I want a story. I want a face I’ll remember in the quiet of my nights."',
     position: "bottom-right",
   },
   {
-    image: "/images/img3.jpg",
+    image: "/images/img3.webp",
     quote:
       '"No luxury, no toys—just one child holding another like the world depends on it."',
     position: "top-left",
   },
   {
-    image: "/images/img4.jpg",
+    image: "/images/img4.webp",
     quote:
       '"Through every dusty road and local laugh, I learn: the raw is more real than the polished ever was."',
     position: "top-right",
   },
   {
-    image: "/images/img5.jpg",
+    image: "/images/img5.webp",
     quote:
       `"I don’t capture what’s trending. I capture what’s real—the worn,
        the warm, the wildly human. These aren’t just photographs.
@@ -73,7 +73,7 @@ const HeroSlider = () => {
             <div
               className={`absolute ${
                 positionClasses[slide.position]
-              } max-w-[80%] text-white text-sm font-playfair  whitespace-pre-line md:text-lg lg:text-3xl italic font-[500] font-[Playfair_Display]`}
+              } max-w-[80%] text-white text-sm font-quote-font  whitespace-pre-line md:text-lg lg:text-2xl italic font-[500] font-[Playfair_Display]`}
             >
               {slide.quote}
             </div>

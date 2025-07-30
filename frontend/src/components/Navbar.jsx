@@ -37,7 +37,7 @@ const Navbar = () => {
         </button>
 
         {/* Links (desktop) */}
-        <div className="hidden md:flex font-poppins space-x-6 text-2xl font-medium">
+        <div className="hidden md:flex font-my_font space-x-10 text-xl font-medium">
           <Link to="/" className="hover:text-yellow-400">
             Home
           </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
 
           {!localStorage.getItem("token") ? (
             <Link to="/login" className="hover:text-yellow-400">
-              Log in
+              
             </Link>
           ) : (
             <>
@@ -70,7 +70,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden w-full bg-black/60 backdrop-blur-sm font-poppins flex flex-col items-center space-y-3 px-6 pt-4 pb-4 text-xl font-medium text-white">
+        <div className="md:hidden w-full bg-black/60 backdrop-blur-sm font-my_font flex flex-col items-center space-y-3 px-6 pt-4 pb-4 text-xl font-medium text-white">
           <Link to="/" className="hover:text-yellow-400">
             Home
           </Link>
@@ -85,7 +85,7 @@ const Navbar = () => {
           </Link>
           {!localStorage.getItem("token") ? (
             <Link to="/login" className="hover:text-yellow-400">
-              Log in
+              
             </Link>
           ) : (
             <>

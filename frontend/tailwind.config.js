@@ -6,12 +6,11 @@ module.exports = {
   theme: {
     extend: {
   fontFamily: {
-    playfair: ['"Playfair Display"', 'serif'],
-     space: ['"Space Grotesk"', 'sans-serif'],
-      merri: ['"Merriweather"', 'serif'],
-      lora: ['"Lora"', 'serif'],
-      vollkorn: ['"Vollkorn Rounded"', 'serif'],
+      playfair: ['"Playfair Display"', 'serif'],
+      space: ['"Space Grotesk"', 'sans-serif'],
       poppins: ['"Poppins"', 'sans-serif'],
+      my_font: ['MyFont', 'sans-serif'],
+      quote_font: ['QuoteFont', 'sans-serif'],
   },
 }
   },
